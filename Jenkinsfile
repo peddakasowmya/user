@@ -1,12 +1,8 @@
-pipeline {
-    agent any 
-    stages {
-        stage('Lint Checks') {
-            steps {
-                sh "echo Installing JSlist"
-                sh "npm i jslint"
-                sh "node_modules/jslint/bin/jslint.js server.js"
-            }
-        }
-    }
-}
+@Library('shared-library') _
+
+env.COMPONENT="catalogue"
+env.APPTYPE="nodejs"
+// call is the function that will be called by default. So, we are delcaring the entire pipeline in the vars/nodejs.groovy
+nodejs()
+ 
+ 
